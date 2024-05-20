@@ -3,8 +3,10 @@
 }
 
 .submitBtn {
-  border-radius: 9px !important;
   background-color: #248700 !important;
   color: #ffff;
   margin-top: 5px;
+  text-transform: none !important;
+  border-radius: 50px !important;
+  padding: 10px 40px !important;
 }
