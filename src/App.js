@@ -1,11 +1,12 @@
 import React from "react";
-import PhoneNumberForm from "./components/PhoneNumberForm";
+import { Container } from "@mui/material";
+import ContactForm from "./components/ContactForm";
 
 const App = () => {
   return (
-    <div>
-      <PhoneNumberForm />
-    </div>
+    <Container>
+      <ContactForm />
+    </Container>
   );
 };
 

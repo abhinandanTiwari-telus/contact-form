@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import {
-  Container,
   Box,
   Typography,
   TextField,
@@ -12,9 +11,12 @@ import {
   Paper,
 } from "@mui/material";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
-import "../customBox.css";
+import FormHeader from "./FormHeader";
+import CstomRadioGroup from "./common/CustomRadioGroup";
+import CustomRadioGroup from "./common/CustomRadioGroup";
+import { options } from "../constants";
 
-const PhoneNumberForm = () => {
+const ContactForm = () => {
   const [phoneNumber, setPhoneNumber] = useState("");
   const [method, setMethod] = useState("sms");
   const [errors, setErrors] = useState({});
@@ -44,7 +46,7 @@ const PhoneNumberForm = () => {
   };
 
   return (
-    <Container>
+    <>
       <Box
         mt={4}
         p={2}
@@ -58,27 +60,7 @@ const PhoneNumberForm = () => {
 
       <Box p={2}>
         <Paper elevation={3}>
-          <Box
-            className="parentBox"
-            sx={{ border: "1px solid #ccc", borderRadius: "5px" }}
-          >
-            <Box className="firstChildBox">
-              <Typography
-                variant="h4"
-                gutterBottom
-                style={{ color: "rgb(75, 40, 109)" }}
-              >
-                Add your contact phone number
-              </Typography>
-            </Box>
-            <Box className="seconChildBox">
-              <Typography variant="body1">
-                We'll contact you by text message or phone call about account
-                updates for your home products and services, for verification
-                when calling in and for exclusive offers or surveys.
-              </Typography>
-            </Box>
-          </Box>
+          <FormHeader />
         </Paper>
 
         <Box mt={4}>
@@ -106,40 +88,12 @@ const PhoneNumberForm = () => {
                 We'll send you code to confirm this phone number. Where should
                 we send it?
               </h4>
-              <RadioGroup
+
+              <CustomRadioGroup
                 value={method}
                 onChange={(e) => setMethod(e.target.value)}
-              >
-                <FormControlLabel
-                  value="sms"
-                  control={
-                    <Radio
-                      sx={{
-                        color: "rgb(75, 40, 109)",
-                        "&.Mui-checked": {
-                          color: "rgb(75, 40, 109)",
-                        },
-                      }}
-                    />
-                  }
-                  label="Text message"
-                />
-
-                <FormControlLabel
-                  value="phone"
-                  control={
-                    <Radio
-                      sx={{
-                        color: "rgb(75, 40, 109)",
-                        "&.Mui-checked": {
-                          color: "rgb(75, 40, 109)",
-                        },
-                      }}
-                    />
-                  }
-                  label="Phone call"
-                />
-              </RadioGroup>
+                options={options}
+              />
             </FormControl>
             <Box>
               <Button
@@ -158,8 +112,8 @@ const PhoneNumberForm = () => {
           </form>
         </Box>
       </Box>
-    </Container>
+    </>
   );
 };
 
-export default PhoneNumberForm;
+export default ContactForm;
