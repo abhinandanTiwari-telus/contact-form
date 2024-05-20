@@ -1,0 +1,14 @@
+.parentBox {
+  height: 100%;
+}
+
+.firstChildBox {
+  height: 50%;
+  background-color: #eee;
+  padding: 20px 33px;
+}
+
+.seconChildBox {
+  padding: 20px 33px;
+  border-top: 1px solid #ccc;
+}
