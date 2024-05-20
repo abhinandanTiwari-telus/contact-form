@@ -1,10 +1,13 @@
 .parentBox {
   height: 100%;
+  border-radius: 5px;
+  border: 1px solid #ccc;
 }
 
 .firstChildBox {
   height: 50%;
   background-color: #f8f3fd;
+  color: rgb(75, 40, 109);
   padding: 20px 33px;
 }
 

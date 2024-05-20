@@ -1,20 +1,10 @@
 import React, { useState } from "react";
-import {
-  Box,
-  Typography,
-  TextField,
-  FormControl,
-  FormControlLabel,
-  Radio,
-  RadioGroup,
-  Button,
-  Paper,
-} from "@mui/material";
-import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+import { Box, TextField, FormControl, Button, Paper } from "@mui/material";
 import FormHeader from "./FormHeader";
-import CstomRadioGroup from "./common/CustomRadioGroup";
 import CustomRadioGroup from "./common/CustomRadioGroup";
 import { options } from "../constants";
+import BackButton from "./common/BackButton";
+import "../assets/form.css";
 
 const ContactForm = () => {
   const [phoneNumber, setPhoneNumber] = useState("");
@@ -47,16 +37,7 @@ const ContactForm = () => {
 
   return (
     <>
-      <Box
-        mt={4}
-        p={2}
-        display="flex"
-        alignItems="center"
-        style={{ overflowY: "auto" }}
-      >
-        <ArrowBackIcon sx={{ cursor: "pointer" }} />
-        <Typography ml={1}>Back to verify your profile</Typography>
-      </Box>
+      <BackButton textmsg={"Back to verify your profile"} />
 
       <Box p={2}>
         <Paper elevation={3}>
@@ -66,7 +47,7 @@ const ContactForm = () => {
         <Box mt={4}>
           <form onSubmit={handleSubmit}>
             <FormControl fullWidth margin="normal">
-              <h4 style={{ margin: 0, marginBottom: "5px" }}>
+              <h4 className="phoneInputHeading">
                 Enter your contact phone number
               </h4>
               <p style={{ margin: 0, marginBottom: "5px" }}>
@@ -95,16 +76,13 @@ const ContactForm = () => {
                 options={options}
               />
             </FormControl>
+
             <Box>
               <Button
                 type="submit"
                 variant="contained"
                 color="primary"
-                style={{
-                  borderRadius: 50,
-                  backgroundColor: "#248700",
-                  marginTop: "5px",
-                }}
+                className="submitBtn"
               >
                 Continue
               </Button>

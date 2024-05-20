@@ -1,19 +1,12 @@
 import React from "react";
-import "../assets/customBox.css";
+import "../assets/formHeader.css";
 import { Box, Typography } from "@mui/material";
 
 const FormHeader = () => {
   return (
-    <Box
-      className="parentBox"
-      sx={{ border: "1px solid #ccc", borderRadius: "5px" }}
-    >
+    <Box className="parentBox">
       <Box className="firstChildBox">
-        <Typography
-          variant="h4"
-          gutterBottom
-          style={{ color: "rgb(75, 40, 109)" }}
-        >
+        <Typography variant="h4" gutterBottom>
           Add your contact phone number
         </Typography>
       </Box>

@@ -1,0 +1,10 @@
+.phoneInputHeading {
+  margin: 0px 5px 0px 0px !important;
+}
+
+.submitBtn {
+  border-radius: 9px !important;
+  background-color: #248700 !important;
+  color: #ffff;
+  margin-top: 5px;
+}
