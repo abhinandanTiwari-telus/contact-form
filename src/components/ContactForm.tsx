@@ -1,18 +1,22 @@
 import React, { useState } from "react";
 import { Box, TextField, FormControl, Button, Paper } from "@mui/material";
-import FormHeader from "./FormHeader";
+import FormHeader from "./FormHeader.tsx";
 import CustomRadioGroup from "./common/CustomRadioGroup";
-import { options } from "../constants";
+import { headLine, options, subHeadLine } from "../constants";
 import BackButton from "./common/BackButton";
 import "../assets/form.css";
 
-const ContactForm = () => {
-  const [phoneNumber, setPhoneNumber] = useState("");
-  const [method, setMethod] = useState("sms");
-  const [errors, setErrors] = useState({});
+interface Errors {
+  phoneNumber?: string;
+}
 
-  const validatePhoneNumber = (number) => {
-    const phonePattern = /^[2-9]{1}[0-9]{2}-[0-9]{3}-[0-9]{4}$/;
+const ContactForm = () => {
+  const [phoneNumber, setPhoneNumber] = useState<string>("");
+  const [method, setMethod] = useState<string>("sms");
+  const [errors, setErrors] = useState<Errors>({});
+
+  const validatePhoneNumber = (number: string) => {
+    const phonePattern = /^[1-9]{1}[0-9]{2}-[0-9]{3}-[0-9]{4}$/;
     if (!number) {
       return "Phone number is required";
     } else if (!phonePattern.test(number)) {
@@ -21,13 +25,14 @@ const ContactForm = () => {
     return "";
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = (event: any) => {
     event.preventDefault();
     const phoneError = validatePhoneNumber(phoneNumber);
     if (phoneError) {
       setErrors({ phoneNumber: phoneError });
     } else {
       setErrors({});
+
       console.log({
         phoneNumber,
         method: method === "sms" ? "sms" : "phone call",
@@ -41,7 +46,7 @@ const ContactForm = () => {
 
       <Box p={2}>
         <Paper elevation={3}>
-          <FormHeader />
+          <FormHeader heading={headLine} subheading={subHeadLine} />
         </Paper>
 
         <Box mt={4}>

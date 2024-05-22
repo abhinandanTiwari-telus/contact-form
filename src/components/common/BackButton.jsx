@@ -1,7 +1,7 @@
 import { Box, Typography } from "@mui/material";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 
-const BackButton = ({textmsg}) => (
+const BackButton = ({ textmsg }) => (
   <Box
     mt={4}
     p={2}
